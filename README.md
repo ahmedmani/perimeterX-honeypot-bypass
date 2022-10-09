@@ -47,14 +47,14 @@ after diggin through javascript i found that a function called "sendActivities" 
 
 # implementing the solution in selenium  
 
-all we needed to do now was find a way to change whatever the variable e was holding inside the sendActivities only when the request was going to the weird request url after calling the handleCaptcha function (which is accessible in the global scope) and passing the token as a param,
+all we need to do now was find a way to change whatever the variable e was holding inside the sendActivities only when the request was going to the weird request url after calling the handleCaptcha function (which is accessible in the global scope) and passing the token as a param,
 
-this was a bit hard to implement in selenium since we need to intercept a local js function and modify its variables, one way to do this was to create a modified js file with the correct e value hardcoded and using a mitmproxy instance sitting between selenium and walmart to pass the modified js file instead of the original one and thats what i did and it worked :)
+this was a bit hard to implement in selenium since we need to intercept a local js function and modify its variables, one way to do this was to create a modified js file with the correct e value hardcoded, using a mitmproxy instance sitting between selenium and walmart to pass the modified js file instead of the original one and thats what i did and it worked :)
 
 this is a addon for mitmproxy i used this to serve the local modified file instead of the original  
 ![](https://i.imgur.com/HaZaPcm.png)
 
 
 # Conclusion
-the above solution was working perfectly however the captcha will only be solved after 3 tries this can be explained that it will only solve captcha after collecting a necessary number of biometrics (leftclickdown, leftclickup etc...), another major weakness is that cookies are not validated on each request meaning we are able to take the validated cookies and use them with http requests, making it possible to make the rest of the http calls using requests and only using selenium when the cookies are expired.
+the above solution was working perfectly however the captcha will only be solved after 3 tries this can be explained due to biometrics collection it will only solve captcha after collecting a necessary number of biometrics (leftclickdown, leftclickup etc...)
 
