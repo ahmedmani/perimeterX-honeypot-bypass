@@ -9,9 +9,9 @@
 
 ![px honeypot](https://i.imgur.com/RrCmeWe.png)
 
-perimeterX runs special js code in order to detect if a user is running a webdriver instance or not (http based browsers are not capable of running js code therefore they wont be able to run the fingerprinting code and end up getting blocked instantley this can also be bypassed aswell)
+perimeterX runs special js code in order to detect if a user is running a webdriver instance or not (http based browsers are not capable of running js code therefore they wont be able to run the fingerprinting code and end up getting blocked instantley this can also be bypassed as well)
 
-vanilla selenium binaries are instanlty detected this is probably due to a js variable selenium exposes, since selenium is not a normal chrome instance it lacks a lot of apis normal chrome offers i suspect some  the js tries calling some js apis which results in them failing and thus triggering the honeypot this is easily bypassable by using undetected chromedriver.
+vanilla selenium binaries are instanlty detected this is probably due to a js variable selenium exposes and the mouse movements of selenium, since selenium is not a normal chrome instance it lacks a lot of apis normal chrome offers i suspect some  the js tries calling some js apis which results in them failing and thus triggering the honeypot this is easily bypassable by using undetected chromedriver.
 undetected chromedriver it is a modified selenium binary that looks like a normal chrome instance and it does not trigger the honeypot
 
 this page is the honeypot its offering a simple click me button (which rareley works without automation :) )
